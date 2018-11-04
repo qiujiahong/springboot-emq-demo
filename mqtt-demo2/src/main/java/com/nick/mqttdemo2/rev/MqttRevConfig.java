@@ -1,6 +1,8 @@
 package com.nick.mqttdemo2.rev;
 
+import com.nick.mqttdemo2.TestServer;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
@@ -16,6 +18,10 @@ import org.springframework.messaging.MessagingException;
 @Slf4j
 @Configuration
 public class MqttRevConfig {
+
+    @Autowired
+    TestServer testServer;
+
     @Bean
     public MessageChannel mqttInputChannel() {
         return new DirectChannel();
@@ -40,6 +46,7 @@ public class MqttRevConfig {
             @Override
             public void handleMessage(Message<?> message) throws MessagingException {
                 log.info("rev <-: {}",message.getPayload());
+                testServer.test(message.getPayload().toString());
             }
         };
     }
