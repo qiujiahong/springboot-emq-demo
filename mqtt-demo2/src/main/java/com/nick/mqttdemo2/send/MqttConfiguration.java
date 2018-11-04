@@ -1,4 +1,4 @@
-package com.nick.mqttdemo1.config;
+package com.nick.mqttdemo2.send;
 
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
