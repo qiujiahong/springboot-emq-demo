@@ -168,3 +168,4 @@ public class TestController {
 
 ![](./assets/2018-11-04-12-17-42.png)
 
+* 在emq dashboard界面上，能看到java程序，和mqttlens各自建立了一个链接；
